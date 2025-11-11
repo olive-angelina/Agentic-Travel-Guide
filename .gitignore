@@ -1,0 +1,18 @@
+# Ignore env files (API keys)
+.env
+*.env
+
+# Python venv
+.venv/
+venv/
+
+# Node modules
+node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Build / dist outputs
+dist/
+build/

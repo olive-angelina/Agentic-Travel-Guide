@@ -1,0 +1,200 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0b0f17;
+  --card-bg: rgba(255, 255, 255, 0.07);
+  --glass: rgba(255, 255, 255, 0.12);
+  --text: #e6ecf5;
+  --subtext: #9ba8c7;
+  --accent: #6ef7ff;
+  --purple: #a07bff;
+  --smooth: cubic-bezier(.4,0,.2,1);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at 20% 20%, #16203a, #0b0f17);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 12px;
+}
+
+/* Background Glow */
+.bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(111, 76, 255, 0.3), transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(18, 220, 255, 0.25), transparent 60%);
+  filter: blur(120px);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.card {
+  width: 100%;
+  max-width: 1600px; /* WIDER */
+  margin: 0 auto;
+  background: var(--card-bg, var(--card));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 32px; /* More breathing room */
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  backdrop-filter: blur(12px);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(45deg, var(--accent), var(--purple));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--subtext);
+  margin-top: 6px;
+}
+
+/* Form Layout */
+.form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  align-items: end;
+}
+
+input {
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: var(--glass);
+  color: var(--text);
+  outline: none;
+  border: 1px solid transparent;
+  transition: .25s var(--smooth);
+}
+
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 5px rgba(110,247,255,0.17);
+}
+
+#plan-btn {
+  grid-column: span 2;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform .15s;
+}
+
+#plan-btn:hover { transform: translateY(-1px); }
+#plan-btn:active { transform: translateY(1px); }
+
+/* Output Itinerary */
+.output { margin-top: 32px; }
+
+.result {
+  padding: 32px;
+  font-size: 16px;
+  line-height: 1.7;
+  background: rgba(2,6,23,0.6);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+}
+
+.result h1, .result h2, .result h3 {
+  margin-top: 14px;
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Gallery */
+.gallery { margin-top: 20px; }
+.gallery-title { color: var(--subtext); margin-bottom: 10px; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+.gallery-grid img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+}
+
+/* Hotels */
+.hotels { margin-top: 26px; }
+
+.hotel-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.hotel-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 14px;
+  padding: 12px;
+  backdrop-filter: blur(8px);
+  transition: transform .2s;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.hotel-card:hover { transform: scale(1.03); }
+
+.hotel-card img {
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.hotel-name {
+  font-weight: 700;
+  margin-top: 8px;
+  font-size: 1.05rem;
+}
+
+.hotel-price { color: #a0e9ff; margin-top: 4px; }
+.hotel-rating { color: #ffd27f; }
+.hotel-description { font-size: 0.92rem; margin-top: 6px; opacity: 0.9; }
+
+.fade-in { opacity: 0; animation: fadeIn .7s forwards ease-out; }
+@keyframes fadeIn { to { opacity: 1; } }
+
+.footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--subtext);
+}

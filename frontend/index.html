@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agentic Travel Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <div class="app">
+    <header class="header">
+      <div class="logo">✈️ TripCraft</div>
+      <div class="subtitle">Smart day-by-day plans in seconds</div>
+    </header>
+
+    <main class="card">
+
+      <form id="planner-form" class="form">
+
+        <div class="field">
+          <label for="from">Departure City</label>
+          <input id="from" name="from" type="text" placeholder="Hyderabad" required />
+        </div>
+
+        <div class="field">
+          <label for="destination">Destination</label>
+          <input id="destination" name="destination" type="text" placeholder="Goa" required />
+        </div>
+
+        <div class="field">
+          <label for="start-date">Start Date</label>
+          <input id="start-date" name="start-date" type="date" required />
+        </div>
+
+        <div class="field">
+          <label for="end-date">End Date</label>
+          <input id="end-date" name="end-date" type="date" required />
+        </div>
+
+        <div class="field" style="grid-column: span 2;">
+          <label for="interests">Interests (comma separated)</label>
+          <input id="interests" name="interests" type="text" placeholder="beach, nightlife, seafood" />
+        </div>
+
+        <button id="plan-btn" type="submit">Generate Plan</button>
+      </form>
+
+      <section id="output" class="output hidden">
+        <div class="top-controls hidden" id="controls">
+          <button id="download-pdf">Download PDF</button>
+        </div>
+
+        <div id="loading" class="loading hidden">Planning your perfect trip…</div>
+
+        <!-- Result container -->
+        <article id="result" class="result">
+          <!-- Photos (moved right under main title via JS) -->
+          <section id="gallery" class="gallery hidden">
+            <h3 class="gallery-title">Photos</h3>
+            <div id="gallery-grid" class="gallery-grid"></div>
+          </section>
+
+          <!-- Hotels (inserted after Budget via JS) -->
+          <section id="hotels" class="hotels hidden">
+            <h3 class="gallery-title">🏨 Recommended Hotels</h3>
+            <div id="hotel-list" class="hotel-list"></div>
+          </section>
+        </article>
+
+      </section>
+    </main>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
