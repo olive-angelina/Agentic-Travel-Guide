@@ -1,4 +1,6 @@
-const API_BASE = "http://localhost:8000";
+
+const API_BASE = "https://agentic-travel-guide-1.onrender.com";
+
 
 const form = document.getElementById("planner-form");
 const output = document.getElementById("output");
